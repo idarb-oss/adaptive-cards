@@ -16,17 +16,17 @@ format:
 py-38:
 	rm -Rf .venv
 	poetry env use 3.8
-	poetry install
+	poetry install --with dev
 
 py-39:
 	rm -Rf .venv
 	poetry env use 3.9
-	poetry install
+	poetry install --with dev
 
 py-310:
 	rm -Rf .venv
 	poetry env use 3.10
-	poetry install
+	poetry install --with dev
 
 test:
 	poetry run pytest -rxXs --cov src --cov-report xml --cov-report=html
