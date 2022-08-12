@@ -11,7 +11,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/idarb-oss/adaptive-cards">
-    <img src="assets/adaptive-card.svg" alt="Logo" width="80" height="80">
+    <img src="docs/assets/adaptive-card.svg" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">adaptive-cards</h3>
@@ -53,8 +53,6 @@
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -166,16 +164,6 @@ Don't forget to give the project a star! Thanks again!
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-## Contact
-
-Idar Bergli - idarb@pm.me
-
-Project Link: [https://github.com/idarb-oss/adaptive-cards](https://github.com/idarb-oss/adaptive-cards)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

@@ -1,0 +1,86 @@
+site_name: adaptive-card
+site_description: Documentation of python implementation of Adaptive Card
+copyright: Copyright &copy; 2022 - 2022 Idar Bergli
+repo_name: idarb-oss/adaptive-cards
+repo_url: https://github.com/idarb-oss/adaptive-cards
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue grey
+      accent: deep orange
+      toggle:
+        icon: material/lightbulb
+        name: Switch to dark mode
+
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      accent: deep orange
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to light mode
+
+  features:
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - navigation.indexes
+    - navigation.top
+
+  logo: assets/adaptive-card.svg
+  favicon: assets/adaptive-card.svg
+  language: en
+  icon:
+    repo: fontawesome/brands/github-alt
+
+plugins:
+  - search:
+      prebuild_index: true
+  - git-revision-date:
+
+extra:
+  generator: false
+
+  #alternate:
+  #  - name: English
+  #    link: /
+  #    lang: en
+
+markdown_extensions:
+  - featherlight
+  - footnotes
+  - attr_list
+  - admonition
+  - abbr
+  - tables
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.tabbed
+  - pymdownx.emoji
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.critic
+  - pymdownx.keys
+  - pymdownx.smartsymbols
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.snippets:
+      auto_append:
+        - includes/abbreviations.md
+  - toc:
+      permalink: true
+
+extra_javascript:
+  - vendor/jquery/jquery-3.6.0.min.js
+  - vendor/featherlight/featherlight.min.js
+
+extra_css:
+  - vendor/featherlight/featherlight.min.css
+
+nav:
+  - Overview: index.md
