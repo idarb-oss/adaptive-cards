@@ -4,8 +4,7 @@ from typing import Literal
 
 from pydantic import Field
 
-from .base import ElementModel
-from .types import Colors, FontSize, FontType, FontWeight, HorizontalAlignment, TextBlockStyle
+from .base import Colors, ElementModel, FontSize, FontType, FontWeight, HorizontalAlignment, TextBlockStyle
 
 
 class TextBlock(ElementModel):

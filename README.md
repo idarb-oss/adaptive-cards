@@ -17,7 +17,7 @@
 <h3 align="center">adaptive-cards</h3>
 
   <p align="center">
-    Implements Microsoft Teams Adaptive Cards by using web hooks connectors to an teams channel.
+    Implements Microsoft Adaptive Cards models to generate json data.
     <br />
     <a href="https://github.com/idarb-oss/adaptive-cards"><strong>Explore the docs »</strong></a>
     <br />
@@ -60,7 +60,7 @@
 
 ## About The Project
 
-Python implementation to create adaptive cards and send them to Microsoft teams webhook connectors.
+Python implementation to create [adaptive cards](https://adaptivecards.io/) as specified from Microsoft.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -69,7 +69,6 @@ Python implementation to create adaptive cards and send them to Microsoft teams 
 ### Built With
 
 - [`Python`](https://python.org)
-- [`httpx`](https://httpx.com) for web requests both synchronous and asynchronous
 - [`pydantic`](https://pydantic.com) for data model modeling
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -77,7 +76,7 @@ Python implementation to create adaptive cards and send them to Microsoft teams 
 
 ## Getting Started
 
-This is an [Adaptive Cards](https://adaptivecards.io/) implementation with an client to communicate with MS Teams webhooks connector.
+This is an [Adaptive Cards](https://adaptivecards.io/) implementation to generate json structures according to the specification from Microsoft.
 
 
 ### Prerequisites

@@ -11,7 +11,7 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         python-version: ["3.10"]
-    
+
     runs-on: ${{ matrix.os }}
     steps:
       - name: Configure workflow
@@ -37,7 +37,7 @@ jobs:
           python -m pip install --upgrade pip setuptools wheel
           python -m pip install "poetry==1.2.0b3"
 
-          poetry config virtualenvs.in-project true          
+          poetry config virtualenvs.in-project true
 
       - name: Install Package Dependencies
         run: poetry install
