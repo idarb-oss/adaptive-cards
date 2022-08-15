@@ -1,7 +1,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/idarb-oss/adaptive-cards">
-    <img src="assets/adaptive-card.svg" alt="Logo" width="80" height="80">
+    <img src="assets/adaptive-card.svg" alt="Logo" width="100" height="100">
   </a>
 
 <h3 align="center">ms-adaptive-cards</h3>
@@ -16,6 +16,8 @@
   </p>
 </div>
 
+[![CI][ci-shield]][ci-url]
+[![PyPi][pypi-shield]][pypi-url]
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -39,10 +41,30 @@ The goals for Adaptive Cards are:
 - Purely declarative - No code is needed or allowed
 - Automatically styled - To the Host application UX and brand guidelines
 
+## Example
+
+```python
+from msadaptivecards.cards import AdaptiveCard
+from msadaptivecards.elements import TextBlock
+
+
+adaptive_card = AdaptiveCard()
+
+text_block = TextBlock(text="Hello World")
+
+adaptive_card.body.append(text_block)
+
+json = adaptive_card.json(by_alias=True, exclude_none=True)
+```
+
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[ci-shield]: https://img.shields.io/github/workflow/status/idarb-oss/adaptive-cards/CI?style=for-the-badge
+[ci-url]: https://github.com/idarb-oss/adaptive-cards/actions?query=event%3Apush+branch%3Amain+workflow%3Aci
+[pypi-shield]: https://img.shields.io/pypi/v/ms-adaptive-cards?style=for-the-badge
+[pypi-url]: https://pypi.org/project/ms-adaptive-cards/
 [contributors-shield]: https://img.shields.io/github/contributors/idarb-oss/adaptive-cards.svg?style=for-the-badge
 [contributors-url]: https://github.com/idarb-oss/adaptive-cards/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/idarb-oss/adaptive-cards.svg?style=for-the-badge

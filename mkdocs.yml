@@ -84,3 +84,6 @@ extra_css:
 
 nav:
   - Overview: index.md
+  - Install: install.md
+  - Usage:
+      - Cards: cards.md
