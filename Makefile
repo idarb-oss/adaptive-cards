@@ -6,6 +6,7 @@ clean:
 	rm -f .coverage
 	rm -f coverage.xml
 	rm -f test-output.xml
+	rm -Rf site
 
 format:
 	poetry run black $(SOURCE_FILES)
