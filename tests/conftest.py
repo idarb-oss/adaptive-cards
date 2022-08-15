@@ -1,6 +1,6 @@
 import pytest
 
-from adaptivecards.cards import AdaptiveCard
+from msadaptivecards.cards import AdaptiveCard
 
 
 @pytest.fixture

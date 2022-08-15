@@ -14,7 +14,7 @@
     <img src="docs/assets/adaptive-card.svg" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">adaptive-cards</h3>
+<h3 align="center">ms-adaptive-cards</h3>
 
   <p align="center">
     Implements Microsoft Adaptive Cards models to generate json data from Python.
