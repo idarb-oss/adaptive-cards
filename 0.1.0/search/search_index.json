@@ -1,1 +1,0 @@
-{"config":{"indexing":"full","lang":["en"],"min_search_length":3,"prebuild_index":true,"separator":"[\\s\\-]+"},"docs":[{"location":"","text":"","title":"Overview"}],"index":{"fieldVectors":[["title/",[0,0.288]],["text/",[]]],"fields":["title","text"],"invertedIndex":[["overview",{"_index":0,"text":{},"title":{"":{}}}]],"pipeline":["stemmer"],"version":"2.3.9"}}
