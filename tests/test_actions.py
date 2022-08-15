@@ -1,4 +1,4 @@
-from adaptivecards.actions import OpenUrl, Submit
+from msadaptivecards.actions import OpenUrl, Submit
 
 
 def test_open_url_action():

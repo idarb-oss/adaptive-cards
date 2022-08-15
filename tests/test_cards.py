@@ -1,4 +1,4 @@
-from adaptivecards.cards import AdaptiveCard
+from msadaptivecards.cards import AdaptiveCard
 
 
 def test_card_configuration(card: AdaptiveCard):

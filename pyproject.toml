@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "adaptive-cards"
+name = "ms-adaptive-cards"
 version = "0.1.0"
 description = "Python implementation of Microsoft Adaptive Cards"
 authors = ["Idar Bergli <idarb@pm.me>"]
 readme = "README.md"
-packages = [{include = "adaptivecards", from = "src"}]
+packages = [{include = "msadaptivecards", from = "src"}]
 
 [tool.poetry.dependencies]
 python = ">=3.8,<4.0"
