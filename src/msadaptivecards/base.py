@@ -12,6 +12,10 @@ def _to_camel(string: str):
 
 
 class CamelModel(BaseModel):
+    """
+    Standard configuration for Pydantic BaseModel to generate camel cased json which is what adaptive cards uses.
+    """
+
     class Config:
         alias_generator = _to_camel
         allow_population_by_field_name = True
@@ -21,6 +25,23 @@ class ImageFillMode(Enum):
     """
     Describes how the image should fill the area.
     See More: https://adaptivecards.io/explorer/BackgroundImage.html
+
+    Attributes:
+        COVER (str):
+            The background image covers the entire width of the container. Its aspect ratio is preserved.
+            Content may be clipped if the aspect ratio of the image doesn't match the aspect ratio of the container.
+            verticalAlignment is respected (horizontalAlignment is meaningless since it's stretched width). This is
+            the default mode and is the equivalent to the current model.
+        REPEAT_HORIZONTALLY (str):
+            The background image isn't stretched. It is repeated in the x axis as many times as necessary to cover
+            the container's width. verticalAlignment is honored (default is top), horizontalAlignment is ignored.
+        REPEAT_VERTICALLY (str):
+            The background image isn't stretched. It is repeated in the y axis as many times as necessary to cover the
+            container's height. verticalAlignment is ignored, horizontalAlignment is honored (default is left).
+        REPEAT (str):
+            The background image isn't stretched. It is repeated first in the x axis then in the y axis as many times
+            as necessary to cover the entire container. Both horizontalAlignment and verticalAlignment are
+            honored (defaults are left and top).
     """
 
     COVER = "cover"
@@ -158,7 +179,17 @@ class AssociatedInputs(Enum):
 
 
 class BackgroundImage(CamelModel):
-    """Specifies a background image. Acceptable formats are PNG, JPEG, and GIF"""
+    """
+    Specifies a background image. Acceptable formats are PNG, JPEG, and GIF
+
+    Keyword Args:
+        url (str): The URL (or data url) of the image. Acceptable formats are PNG, JPEG, and GIF
+        fill_mode (ImageFillMode): Describes how the image should fill the area.
+        horizontal_alignment (HorizontalAlignment): Describes how the image should be aligned if it must be cropped
+            or if using repeat fill mode.
+        vertical_alignment (VerticalAlignment): Describes how the image should be aligned if it must be cropped or
+            if using repeat fill mode.
+    """
 
     url: str = Field(..., description="The URL (or data url) of the image. Acceptable formats are PNG, JPEG, and GIF")
     fill_mode: ImageFillMode = Field(None, description="Describes how the image should fill the area.")
@@ -173,7 +204,21 @@ class BackgroundImage(CamelModel):
 
 
 class ElementModel(CamelModel):
-    """"""
+    """
+    Base model for element types
+
+    Keyword Args:
+        fallback (ElementModel): Describes what to do when an unknown element is encountered or the requires of
+            this or any children can't be met.
+        height (BlockElementHeight): Specifies the height of the element.
+        separator (bool): When true, draw a separating line at the top of the element.
+        spacing (Spacing): Controls the amount of spacing between this element and the preceding element.
+        id (str): A unique identifier associated with the item.
+        is_visible (bool): If false, this item will be removed from the visual tree.
+        requirees (Dict[str, str]): A series of key/value pairs indicating features that the item requires with
+            corresponding minimum version. When a feature is missing or of insufficient version, fallback is triggered.
+
+    """
 
     fallback: "ElementModel" = Field(
         None,
@@ -187,15 +232,32 @@ class ElementModel(CamelModel):
     )
     id: str = Field(None, description="A unique identifier associated with the item.")
     is_visible: bool = Field(True, description="If false, this item will be removed from the visual tree.")
-    requires: Dict[str, str] = Field(
-        default_factory=dict,
+    requires: Dict[str, str] = Field(None,
         description="A series of key/value pairs indicating features that the item requires with corresponding "
         "minimum version. When a feature is missing or of insufficient version, fallback is triggered.",
     )
 
 
 class ActionModel(CamelModel):
-    """"""
+    """
+    Base model for all action types
+
+    Keyword Args:
+        title (str): Label for button or link that represents this action.
+        icon_url (str): Optional icon to be shown on the action in conjunction with the title.
+            Supports data URI in version 1.2+
+        id (str): A unique identifier associated with this Action.
+        style (ActionStyle): Controls the style of an Action, which influences how the action is " "displayed, spoken,
+            etc.
+        fallback (ActionModel): Describes what to do when an unknown element is encountered or the requires of this or
+            any children can’t be met.
+        tooltip (str): Defines text that should be displayed to the end user as they hover the mouse over the action,
+            and read when using narration software.
+        is_enabled (bool): Determines whether the action should be enabled.
+        mode (ActionMode): Determines whether the action should be displayed as a button or in the overflow menu.
+        requires (Dict[str, str]): A series of key/value pairs indicating features that the item requires with
+            corresponding minimum version. When a feature is missing or of insufficient version, fallback is triggered.
+    """
 
     title: str = Field(None, description="Label for button or link that represents this action.")
     icon_url: str = Field(
@@ -220,7 +282,7 @@ class ActionModel(CamelModel):
     )
     is_enabled: bool = Field(True, description="Determines whether the action should be enabled.")
     mode: ActionMode = Field(
-        None, description="Determines whether the action should be displayed as a button or in " "the overflow menu."
+        None, description="Determines whether the action should be displayed as a button or in the overflow menu."
     )
     requires: Dict[str, str] = Field(
         default_factory=dict,
@@ -231,13 +293,28 @@ class ActionModel(CamelModel):
 
 
 class SelectAction(ActionModel):
-    """"""
+    """
+    Marker model for select actions.
+    """
 
     pass
 
 
 class BaseContainers(CamelModel):
-    """"""
+    """
+    Base model for all containers.
+
+    Keyword Args:
+        fallback (ElementModel): Describes what to do when an unknown element is encountered or the requires of this
+            or any children can't be met.
+         height (BlockElementHeight): Specifies the height of the element.
+         separator (bool): When true, draw a separating line at the top of the element.
+         spacing (Spacing): Controls the amount of spacing between this element and the preceding element.
+         id (str): A unique identifier associated with the item.
+         is_visible: If false, this item will be removed from the visual tree.
+         requires (Dict[str, str]): A series of key/value pairs indicating features that the item requires with
+            corresponding minimum version. When a feature is missing or of insufficient version, fallback is triggered.
+    """
 
     fallback: ElementModel = Field(
         None,

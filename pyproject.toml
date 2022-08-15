@@ -32,6 +32,8 @@ mkdocs-git-revision-date-plugin = "^0.3.2"
 mkdocs-markdownextradata-plugin = "^0.2.5"
 featherlight = { git = "https://github.com/it-novum/mkdocs-featherlight.git", branch = "main"}
 mike = "^1.1.2"
+mkdocstrings = "^0.19.0"
+mkdocstrings-python = "^0.7.1"
 
 [build-system]
 requires = ["poetry-core"]

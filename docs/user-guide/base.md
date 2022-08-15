@@ -1,0 +1,3 @@
+## Code Reference
+
+::: msadaptivecards.base

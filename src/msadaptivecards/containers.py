@@ -18,11 +18,30 @@ from .base import (
 
 
 class Container(BaseContainers):
-    """Containers group items together."""
+    """
+    Containers group items together.
+
+    Keyword Args:
+        type (str): Must be `Container`.
+        items (List[ElementModel]): The card elements to render inside the Container.
+        select_action (SelectAction): An Action that will be invoked when the Container is tapped or selected.
+            Action.ShowCard is not supported.
+        style (Style): Style hint for Container.
+        vertical_content_alignment (VerticalAlignment): Defines how the content should be aligned vertically within
+            the container. When not specified, the value of verticalContentAlignment is inherited from the parent
+            container. If no parent container has verticalContentAlignment set, it defaults to Top.
+        bleed (bool): Determines whether the element should bleed through its parent's padding.
+        background_image (Union[BackgroundImage, str]): Specifies the background image. Acceptable formats
+            are PNG, JPEG, and GIF.
+        min_height (str): Specifies the minimum height of the container in pixels, like `80px`.
+        rtl (bool): When true content in this container should be presented right to left. When 'false' content in
+            this container should be presented left to right. When unset layout direction will inherit from parent
+            container or column. If unset in all ancestors, the default platform behavior will apply.
+    """
 
     type: Literal["Container"] = Field("Container", description="Must be 'Container'.")
     items: List[ElementModel] = Field(
-        default_factory=list, description="The card elements to render inside the " "Container."
+        default_factory=list, description="The card elements to render inside the Container."
     )
     select_action: SelectAction = Field(
         None,
@@ -38,7 +57,7 @@ class Container(BaseContainers):
     )
     bleed: bool = Field(None, description="Determines whether the element should bleed through its parent's padding.")
     background_image: Union[BackgroundImage, str] = Field(
-        None, description="Specifies the background image. Acceptable formats " "are PNG, JPEG, and GIF"
+        None, description="Specifies the background image. Acceptable formats are PNG, JPEG, and GIF"
     )
     min_height: str = Field(None, description="Specifies the minimum height of the container in pixels, like '80px'.")
     rtl: bool = Field(
@@ -51,7 +70,12 @@ class Container(BaseContainers):
 
 
 class Column(CamelModel):
-    """Defines a container that is part of a ColumnSet."""
+    """
+    Defines a container that is part of a ColumnSet.
+
+    Keyword Args:
+        id (str): A unique identifier associated with the item.
+    """
 
     id: str = Field(None, description="A unique identifier associated with the item.")
     is_visible: bool = Field(True, description="If false, this item will be removed from the visual tree.")

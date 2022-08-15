@@ -5,3 +5,7 @@ from msadaptivecards.cards import AdaptiveCard
 
 card = AdaptiveCard()
 ```
+
+## Code Reference
+
+::: msadaptivecards.cards

@@ -8,7 +8,32 @@ from .base import ActionModel, BackgroundImage, CamelModel, ElementModel, Select
 
 
 class AdaptiveCard(CamelModel):
-    """An Adaptive Card, containing a free-form body of card elements, and an optional set of actions."""
+    """
+    An Adaptive Card, containing a free-form body of card elements, and an optional set of actions.
+
+    Keyword Args:
+        schema_ (str): The Adaptive Card schema. Aliased with `$schema`.
+        type (str): Type of card must be `AdaptiveCard`
+        version (str): Schema version that this card requires. If a client is lower than this version, the
+            fallbackText will be rendered. NOTE: Version is not required for cards within an Action.ShowCard.
+            However, it is required for the top-level card.
+        refresh (str): Defines how the card can be refreshed by making a request to the target Bot.
+        authentication (str): Defines authentication information to enable on-behalf-of single sign on or
+            just-in-time OAuth.
+        body (List[ElementModel]): The card elements to show in the primary card region.
+        actions (List[ActionModel]): The Actions to show in the card's action bar.
+        select_action (SelectAction): An Action that will be invoked when the card is tapped or selected.
+            Action.ShowCard is not supported.
+        fallback_text (str): Text shown when the client doesn't support the version specified (may contain markdown).
+        background_image (Union[BackgroundImage, str]): Specifies the background image of the card.
+        min_height (str): Specifies the minimum height of the card.
+        rtl (bool): When true content in this Adaptive Card should be presented right to left. When 'false' content
+            in this Adaptive Card should be presented left to right. If unset, the default platform behavior will apply.
+        speak (str): Specifies what should be spoken for this entire card. This is simple text or SSML fragment.
+        lang (str): The 2-letter ISO-639-1 language used in the card. Used to localize any date/time functions.
+        vertical_content_alignment (str): Defines how the content should be aligned vertically within the container.
+            Only relevant for fixed-height cards, or cards with a minHeight specified.
+    """
 
     schema_: str = Field(
         "http://adaptivecards.io/schemas/adaptive-card.json", description="The Adaptive Card schema.", alias="$schema"
