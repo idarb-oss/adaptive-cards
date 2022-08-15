@@ -1,19 +1,19 @@
 [tool.poetry]
 name = "adaptive-cards"
 version = "0.1.0"
-description = ""
+description = "Python implementation of Microsoft Adaptive Cards"
 authors = ["Idar Bergli <idarb@pm.me>"]
 readme = "README.md"
 packages = [{include = "adaptivecards", from = "src"}]
 
 [tool.poetry.dependencies]
 python = ">=3.8,<4.0"
-httpx = "^0.23.0"
 pydantic = "^1.9.1"
 pyhumps = "^3.7.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.1.2"
+pytest-bdd = "^6.0.1"
 pytest-cov = "^3.0.0"
 pytest-mock = "^3.8.2"
 pytest-xdist = "^2.5.0"
@@ -23,9 +23,15 @@ isort = "^5.10.1"
 black = "^22.6.0"
 coverage = "^6.4.3"
 pre-commit = "^2.20.0"
-pytest-asyncio = "^0.19.0"
-pytest-httpx = "^0.21.0"
-pytest-bdd = "^6.0.1"
+
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.3.1"
+mkdocs-material = "^8.3.9"
+mkdocs-git-revision-date-plugin = "^0.3.2"
+mkdocs-markdownextradata-plugin = "^0.2.5"
+featherlight = { git = "https://github.com/it-novum/mkdocs-featherlight.git", branch = "main"}
+mike = "^1.1.2"
 
 [build-system]
 requires = ["poetry-core"]

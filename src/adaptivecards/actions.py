@@ -4,8 +4,7 @@ from typing import Literal, Union
 
 from pydantic import Field
 
-from .base import SelectAction
-from .types import AssociatedInputs
+from .base import AssociatedInputs, SelectAction
 
 
 class OpenUrl(SelectAction):

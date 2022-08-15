@@ -4,8 +4,17 @@ from typing import Dict, List, Literal, Union
 
 from pydantic import Field
 
-from .base import BaseContainers, CamelModel, ElementModel, SelectAction
-from .types import BackgroundImage, HorizontalAlignment, Spacing, Style, VerticalAlignment
+from .base import (
+    BackgroundImage,
+    BaseContainers,
+    CamelModel,
+    ElementModel,
+    HorizontalAlignment,
+    SelectAction,
+    Spacing,
+    Style,
+    VerticalAlignment,
+)
 
 
 class Container(BaseContainers):
@@ -82,7 +91,7 @@ class Column(CamelModel):
         "Action.ShowCard is not supported.",
     )
     style: Style = Field(None, description="Style hint for Column.")
-    vertical_content_alignment = VerticalAlignment = Field(
+    vertical_content_alignment: VerticalAlignment = Field(
         None,
         description="Defines how the content should be aligned vertically within the column. When not specified, the "
         "value of verticalContentAlignment is inherited from the parent container. If no parent container has "

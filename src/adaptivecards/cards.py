@@ -4,9 +4,7 @@ from typing import List, Literal, Union
 
 from pydantic import Field
 
-from .base import ActionModel, CamelModel, ElementModel, SelectAction
-from .elements import TextBlock
-from .types import BackgroundImage
+from .base import ActionModel, BackgroundImage, CamelModel, ElementModel, SelectAction
 
 
 class AdaptiveCard(CamelModel):
@@ -22,13 +20,13 @@ class AdaptiveCard(CamelModel):
         "will be rendered. NOTE: Version is not required for cards within an Action.ShowCard. However, it is required "
         "for the top-level card.",
     )
-    # refresh: str = Field(
-    #     None, description="Defines how the card can be refreshed by making a request to the target Bot."
-    # )
-    # authentication: str = Field(
-    #     None,
-    #     description="Defines authentication information to enable on-behalf-of single sign on or just-in-time OAuth.",
-    # )
+    refresh: str = Field(
+        None, description="Defines how the card can be refreshed by making a request to the target Bot."
+    )
+    authentication: str = Field(
+        None,
+        description="Defines authentication information to enable on-behalf-of single sign on or just-in-time OAuth.",
+    )
     body: List[ElementModel] = Field(
         default_factory=list, description="The card elements to show in the primary card region."
     )
@@ -63,9 +61,3 @@ class AdaptiveCard(CamelModel):
         description="Defines how the content should be aligned vertically within the container. Only relevant for "
         "fixed-height cards, or cards with a minHeight specified.",
     )
-
-    def add_text_block(self) -> TextBlock:
-        """"""
-        text_block = TextBlock()
-        self.body.append(text_block)
-        return text_block
