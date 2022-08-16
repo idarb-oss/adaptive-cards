@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ms-adaptive-cards"
-version = "0.1.0"
+version = "0.1.1"
 description = "Python implementation of Microsoft Adaptive Cards"
 authors = ["Idar Bergli <idarb@pm.me>"]
 readme = "README.md"
