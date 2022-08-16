@@ -439,7 +439,7 @@ class ActionModel(CamelModel):
         None, description="Determines whether the action should be displayed as a button or in the overflow menu."
     )
     requires: Dict[str, str] = Field(
-        default_factory=dict,
+        None,
         description="A series of key/value pairs indicating "
         "features that the item requires with corresponding minimum version. When a feature is missing or of "
         "insufficient version, fallback is triggered.",
@@ -490,7 +490,7 @@ class BaseContainers(CamelModel):
     id: str = Field(None, description="A unique identifier associated with the item.")
     is_visible: bool = Field(True, description="If false, this item will be removed from the visual tree.")
     requires: Dict[str, str] = Field(
-        default_factory=dict,
+        None,
         description="A series of key/value pairs indicating features that "
         "the item requires with corresponding minimum version. When a feature is missing or of insufficient version, "
         "fallback is triggered.",

@@ -61,7 +61,7 @@ class Container(BaseContainers):
     )
     min_height: str = Field(None, description="Specifies the minimum height of the container in pixels, like '80px'.")
     rtl: bool = Field(
-        False,
+        None,
         description="When true content in this container should be presented right to left. "
         "When 'false' content in this container should be presented left to right. When unset layout direction will "
         "inherit from parent container or column. If unset in all ancestors, the default platform behavior "
@@ -134,7 +134,7 @@ class Column(CamelModel):
     )
     min_height: str = Field(None, description="Specifies the minimum height of the column in pixels, like '80px'.")
     rtl: bool = Field(
-        False,
+        None,
         description="When true content in this column should be presented right to left. When 'false' content in this "
         "column should be presented left to right. When unset layout direction will inherit from parent container or "
         "column. If unset in all ancestors, the default platform behavior will apply.",
@@ -268,7 +268,7 @@ class TableCell(BaseContainers):
     )
     min_height: str = Field(None, description="Specifies the minimum height of the container in pixels, like '80px'.")
     rtl: bool = Field(
-        False,
+        None,
         description="When true content in this container should be presented right to left. When 'false' content in "
         "this container should be presented left to right. When unset layout direction will inherit from parent "
         "container or column. If unset in all ancestors, the default platform behavior will apply.",

@@ -124,8 +124,8 @@ _For more examples, please refer to the [Documentation](https://adaptive-cards.i
   - [x] Container
   - [x] ColumnSet
   - [x] Column
-  - [ ] FactSet
-  - [ ] Fact
+  - [x] FactSet
+  - [x] Fact
   - [ ] ImageSet
   - [x] Table
   - [x] TableCell

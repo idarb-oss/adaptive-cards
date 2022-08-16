@@ -40,7 +40,7 @@ class AdaptiveCard(CamelModel):
     )
     type: Literal["AdaptiveCard"] = Field("AdaptiveCard", description="Must be 'AdaptiveCard'.")
     version: str = Field(
-        "1.4",
+        "1.5",
         description="Schema version that this card requires. If a client is lower than this version, the fallbackText "
         "will be rendered. NOTE: Version is not required for cards within an Action.ShowCard. However, it is required "
         "for the top-level card.",
@@ -55,9 +55,7 @@ class AdaptiveCard(CamelModel):
     body: List[ElementModel] = Field(
         default_factory=list, description="The card elements to show in the primary card region."
     )
-    actions: List[ActionModel] = Field(
-        default_factory=list, description="The Actions to show in the card's action bar."
-    )
+    actions: List[ActionModel] = Field(None, description="The Actions to show in the card's action bar.")
     select_action: SelectAction = Field(
         None,
         description="An Action that will be invoked when the card is tapped or selected. Action.ShowCard is not "
@@ -71,7 +69,7 @@ class AdaptiveCard(CamelModel):
     )
     min_height: str = Field(None, description="Specifies the minimum height of the card.")
     rtl: bool = Field(
-        False,
+        None,
         description="When true content in this Adaptive Card should be presented right to left. When 'false' content "
         "in this Adaptive Card should be presented left to right. If unset, the default platform behavior will apply.",
     )
