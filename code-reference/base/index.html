@@ -1,0 +1,3437 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation of python implementation of Adaptive Card">
+      
+      
+      
+      <link rel="icon" href="../../assets/adaptive-card.svg">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.0">
+    
+    
+      
+        <title>Base - adaptive-card</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../vendor/featherlight/featherlight.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#code-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="adaptive-card" class="md-header__button md-logo" aria-label="adaptive-card" data-md-component="logo">
+      
+  <img src="../../assets/adaptive-card.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            adaptive-card
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Base
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/idarb-oss/adaptive-cards" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    idarb-oss/adaptive-cards
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="adaptive-card" class="md-nav__button md-logo" aria-label="adaptive-card" data-md-component="logo">
+      
+  <img src="../../assets/adaptive-card.svg" alt="logo">
+
+    </a>
+    adaptive-card
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/idarb-oss/adaptive-cards" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    idarb-oss/adaptive-cards
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/" class="md-nav__link">
+        Install
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          User-Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="User-Guide" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          User-Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/cards/" class="md-nav__link">
+        Cards
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/containers/" class="md-nav__link">
+        Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/elements/" class="md-nav__link">
+        Elements
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/actions/" class="md-nav__link">
+        Actions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/base/" class="md-nav__link">
+        Base
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Code Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Code Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Code Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cards/" class="md-nav__link">
+        Cards
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../containers/" class="md-nav__link">
+        Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elements/" class="md-nav__link">
+        Elements
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actions/" class="md-nav__link">
+        Actions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Base
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Base
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base" class="md-nav__link">
+    msadaptivecards.base
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.ActionMode" class="md-nav__link">
+    ActionMode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.ActionModel" class="md-nav__link">
+    ActionModel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.ActionStyle" class="md-nav__link">
+    ActionStyle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.AssociatedInputs" class="md-nav__link">
+    AssociatedInputs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.BackgroundImage" class="md-nav__link">
+    BackgroundImage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.BaseContainers" class="md-nav__link">
+    BaseContainers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.BlockElementHeight" class="md-nav__link">
+    BlockElementHeight
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.CamelModel" class="md-nav__link">
+    CamelModel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.Colors" class="md-nav__link">
+    Colors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.ElementModel" class="md-nav__link">
+    ElementModel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.FontSize" class="md-nav__link">
+    FontSize
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.FontType" class="md-nav__link">
+    FontType
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.FontWeight" class="md-nav__link">
+    FontWeight
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.HorizontalAlignment" class="md-nav__link">
+    HorizontalAlignment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.ImageFillMode" class="md-nav__link">
+    ImageFillMode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.SelectAction" class="md-nav__link">
+    SelectAction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.Spacing" class="md-nav__link">
+    Spacing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.Style" class="md-nav__link">
+    Style
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.TextBlockStyle" class="md-nav__link">
+    TextBlockStyle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.VerticalAlignment" class="md-nav__link">
+    VerticalAlignment
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base" class="md-nav__link">
+    msadaptivecards.base
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.ActionMode" class="md-nav__link">
+    ActionMode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.ActionModel" class="md-nav__link">
+    ActionModel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.ActionStyle" class="md-nav__link">
+    ActionStyle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.AssociatedInputs" class="md-nav__link">
+    AssociatedInputs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.BackgroundImage" class="md-nav__link">
+    BackgroundImage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.BaseContainers" class="md-nav__link">
+    BaseContainers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.BlockElementHeight" class="md-nav__link">
+    BlockElementHeight
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.CamelModel" class="md-nav__link">
+    CamelModel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.Colors" class="md-nav__link">
+    Colors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.ElementModel" class="md-nav__link">
+    ElementModel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.FontSize" class="md-nav__link">
+    FontSize
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.FontType" class="md-nav__link">
+    FontType
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.FontWeight" class="md-nav__link">
+    FontWeight
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.HorizontalAlignment" class="md-nav__link">
+    HorizontalAlignment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.ImageFillMode" class="md-nav__link">
+    ImageFillMode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.SelectAction" class="md-nav__link">
+    SelectAction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.Spacing" class="md-nav__link">
+    Spacing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.Style" class="md-nav__link">
+    Style
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.TextBlockStyle" class="md-nav__link">
+    TextBlockStyle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msadaptivecards.base.VerticalAlignment" class="md-nav__link">
+    VerticalAlignment
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/idarb-oss/adaptive-cards/edit/master/docs/code-reference/base.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="code-reference">Code Reference<a class="headerlink" href="#code-reference" title="Permanent link">&para;</a></h1>
+
+
+<div class="doc doc-object doc-module">
+
+
+<a id="msadaptivecards.base"></a>
+  <div class="doc doc-contents first">
+  
+      
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="msadaptivecards.base.ActionMode" class="doc doc-heading">
+        <code>ActionMode</code>
+
+
+<a href="#msadaptivecards.base.ActionMode" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="enum.Enum">Enum</span></code></p>
+
+  
+      <p>Determines whether the action should be displayed as a button or in the overflow menu.</p>
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>PRIMARY</code></td>
+          <td>
+          </td>
+          <td><p>Action is displayed as a button.</p></td>
+        </tr>
+        <tr>
+          <td><code>SECONDARY</code></td>
+          <td>
+          </td>
+          <td><p>Action is placed in an overflow menu (typically a popup menu under a ... button).</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>msadaptivecards/base.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">ActionMode</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Determines whether the action should be displayed as a button or in the overflow menu.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        PRIMARY:</span>
+<span class="sd">            Action is displayed as a button.</span>
+<span class="sd">        SECONDARY:</span>
+<span class="sd">            Action is placed in an overflow menu (typically a popup menu under a ... button).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">PRIMARY</span> <span class="o">=</span> <span class="s2">&quot;primary&quot;</span>
+    <span class="n">SECONDARY</span> <span class="o">=</span> <span class="s2">&quot;secondary&quot;</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="msadaptivecards.base.ActionModel" class="doc doc-heading">
+        <code>ActionModel</code>
+
+
+<a href="#msadaptivecards.base.ActionModel" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><a class="autorefs autorefs-internal" title="msadaptivecards.base.CamelModel" href="#msadaptivecards.base.CamelModel">CamelModel</a></code></p>
+
+  
+      <p>Base model for all action types</p>
+
+  <p><strong>Other Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>title</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>Label for button or link that represents this action.</p></td>
+        </tr>
+        <tr>
+          <td><code>icon_url</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>Optional icon to be shown on the action in conjunction with the title. Supports data URI in version 1.2+</p></td>
+        </tr>
+        <tr>
+          <td><code>id</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>A unique identifier associated with this Action.</p></td>
+        </tr>
+        <tr>
+          <td><code>style</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="msadaptivecards.base.ActionStyle" href="#msadaptivecards.base.ActionStyle">ActionStyle</a></code>
+          </td>
+          <td><p>Controls the style of an Action, which influences how the action is displayed, spoken, etc.</p></td>
+        </tr>
+        <tr>
+          <td><code>fallback</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="msadaptivecards.base.ActionModel" href="#msadaptivecards.base.ActionModel">ActionModel</a></code>
+          </td>
+          <td><p>Describes what to do when an unknown element is encountered or the requires of this or any
+children can't be met.</p></td>
+        </tr>
+        <tr>
+          <td><code>tooltip</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>Defines text that should be displayed to the end user as they hover the mouse over the action,
+and read when using narration software.</p></td>
+        </tr>
+        <tr>
+          <td><code>is_enabled</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td><p>Determines whether the action should be enabled.</p></td>
+        </tr>
+        <tr>
+          <td><code>mode</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="msadaptivecards.base.ActionMode" href="#msadaptivecards.base.ActionMode">ActionMode</a></code>
+          </td>
+          <td><p>Determines whether the action should be displayed as a button or in the overflow menu.</p></td>
+        </tr>
+        <tr>
+          <td><code>requires</code></td>
+          <td>
+                <code><span title="typing.Dict">Dict</span>[str, str]</code>
+          </td>
+          <td><p>A series of key/value pairs indicating features that the item requires with corresponding minimum version.
+When a feature is missing or of insufficient version, fallback is triggered.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>msadaptivecards/base.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">388</span>
+<span class="normal">389</span>
+<span class="normal">390</span>
+<span class="normal">391</span>
+<span class="normal">392</span>
+<span class="normal">393</span>
+<span class="normal">394</span>
+<span class="normal">395</span>
+<span class="normal">396</span>
+<span class="normal">397</span>
+<span class="normal">398</span>
+<span class="normal">399</span>
+<span class="normal">400</span>
+<span class="normal">401</span>
+<span class="normal">402</span>
+<span class="normal">403</span>
+<span class="normal">404</span>
+<span class="normal">405</span>
+<span class="normal">406</span>
+<span class="normal">407</span>
+<span class="normal">408</span>
+<span class="normal">409</span>
+<span class="normal">410</span>
+<span class="normal">411</span>
+<span class="normal">412</span>
+<span class="normal">413</span>
+<span class="normal">414</span>
+<span class="normal">415</span>
+<span class="normal">416</span>
+<span class="normal">417</span>
+<span class="normal">418</span>
+<span class="normal">419</span>
+<span class="normal">420</span>
+<span class="normal">421</span>
+<span class="normal">422</span>
+<span class="normal">423</span>
+<span class="normal">424</span>
+<span class="normal">425</span>
+<span class="normal">426</span>
+<span class="normal">427</span>
+<span class="normal">428</span>
+<span class="normal">429</span>
+<span class="normal">430</span>
+<span class="normal">431</span>
+<span class="normal">432</span>
+<span class="normal">433</span>
+<span class="normal">434</span>
+<span class="normal">435</span>
+<span class="normal">436</span>
+<span class="normal">437</span>
+<span class="normal">438</span>
+<span class="normal">439</span>
+<span class="normal">440</span>
+<span class="normal">441</span>
+<span class="normal">442</span>
+<span class="normal">443</span>
+<span class="normal">444</span>
+<span class="normal">445</span>
+<span class="normal">446</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">ActionModel</span><span class="p">(</span><span class="n">CamelModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base model for all action types</span>
+
+<span class="sd">    Keyword Args:</span>
+<span class="sd">        title (str):</span>
+<span class="sd">            Label for button or link that represents this action.</span>
+<span class="sd">        icon_url (str):</span>
+<span class="sd">            Optional icon to be shown on the action in conjunction with the title. Supports data URI in version 1.2+</span>
+<span class="sd">        id (str):</span>
+<span class="sd">            A unique identifier associated with this Action.</span>
+<span class="sd">        style (ActionStyle):</span>
+<span class="sd">            Controls the style of an Action, which influences how the action is displayed, spoken, etc.</span>
+<span class="sd">        fallback (ActionModel):</span>
+<span class="sd">            Describes what to do when an unknown element is encountered or the requires of this or any</span>
+<span class="sd">            children can&#39;t be met.</span>
+<span class="sd">        tooltip (str):</span>
+<span class="sd">            Defines text that should be displayed to the end user as they hover the mouse over the action,</span>
+<span class="sd">            and read when using narration software.</span>
+<span class="sd">        is_enabled (bool):</span>
+<span class="sd">            Determines whether the action should be enabled.</span>
+<span class="sd">        mode (ActionMode):</span>
+<span class="sd">            Determines whether the action should be displayed as a button or in the overflow menu.</span>
+<span class="sd">        requires (Dict[str, str]):</span>
+<span class="sd">            A series of key/value pairs indicating features that the item requires with corresponding minimum version.</span>
+<span class="sd">            When a feature is missing or of insufficient version, fallback is triggered.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Label for button or link that represents this action.&quot;</span><span class="p">)</span>
+    <span class="n">icon_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Optional icon to be shown on the action in conjunction with the title. &quot;</span>
+        <span class="s2">&quot;Supports data URI in version 1.2+&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;A unique identifier associated with this Action.&quot;</span><span class="p">)</span>
+    <span class="n">style</span><span class="p">:</span> <span class="n">ActionStyle</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Controls the style of an Action, which influences how the action is displayed, spoken, etc.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">fallback</span><span class="p">:</span> <span class="s2">&quot;ActionModel&quot;</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Describes what to do when an unknown element is encountered or &quot;</span>
+        <span class="s2">&quot;the requires of this or any children can’t be met.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">tooltip</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Defines text that should be displayed to the end user as they hover the &quot;</span>
+        <span class="s2">&quot;mouse over the action, and read when using narration software.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">is_enabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Determines whether the action should be enabled.&quot;</span><span class="p">)</span>
+    <span class="n">mode</span><span class="p">:</span> <span class="n">ActionMode</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Determines whether the action should be displayed as a button or in the overflow menu.&quot;</span>
+    <span class="p">)</span>
+    <span class="n">requires</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;A series of key/value pairs indicating &quot;</span>
+        <span class="s2">&quot;features that the item requires with corresponding minimum version. When a feature is missing or of &quot;</span>
+        <span class="s2">&quot;insufficient version, fallback is triggered.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="msadaptivecards.base.ActionStyle" class="doc doc-heading">
+        <code>ActionStyle</code>
+
+
+<a href="#msadaptivecards.base.ActionStyle" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="enum.Enum">Enum</span></code></p>
+
+  
+      <p>Controls the style of an Action, which influences how the action is displayed, spoken, etc.</p>
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>DEFAULT</code></td>
+          <td>
+          </td>
+          <td><p>Action is displayed as normal</p></td>
+        </tr>
+        <tr>
+          <td><code>POSITIVE</code></td>
+          <td>
+          </td>
+          <td><p>Action is displayed with a positive style (typically the button becomes accent color)</p></td>
+        </tr>
+        <tr>
+          <td><code>DESTRUCTIVE</code></td>
+          <td>
+          </td>
+          <td><p>Action is displayed with a destructive style (typically the button becomes red)</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>msadaptivecards/base.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">ActionStyle</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Controls the style of an Action, which influences how the action is displayed, spoken, etc.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        DEFAULT:</span>
+<span class="sd">            Action is displayed as normal</span>
+<span class="sd">        POSITIVE:</span>
+<span class="sd">            Action is displayed with a positive style (typically the button becomes accent color)</span>
+<span class="sd">        DESTRUCTIVE:</span>
+<span class="sd">            Action is displayed with a destructive style (typically the button becomes red)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">DEFAULT</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
+    <span class="n">POSITIVE</span> <span class="o">=</span> <span class="s2">&quot;positive&quot;</span>
+    <span class="n">DESTRUCTIVE</span> <span class="o">=</span> <span class="s2">&quot;destructive&quot;</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="msadaptivecards.base.AssociatedInputs" class="doc doc-heading">
+        <code>AssociatedInputs</code>
+
+
+<a href="#msadaptivecards.base.AssociatedInputs" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="enum.Enum">Enum</span></code></p>
+
+  
+      <p>Controls which inputs are associated with the submit action.</p>
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>AUTO</code></td>
+          <td>
+          </td>
+          <td><p>Inputs on the current card and any parent cards will be validated and submitted for this Action.</p></td>
+        </tr>
+        <tr>
+          <td><code>NONE</code></td>
+          <td>
+          </td>
+          <td><p>None of the inputs will be validated or submitted for this Action.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>msadaptivecards/base.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">AssociatedInputs</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Controls which inputs are associated with the submit action.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        AUTO:</span>
+<span class="sd">            Inputs on the current card and any parent cards will be validated and submitted for this Action.</span>
+<span class="sd">        NONE:</span>
+<span class="sd">            None of the inputs will be validated or submitted for this Action.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">AUTO</span> <span class="o">=</span> <span class="s2">&quot;Auto&quot;</span>
+    <span class="n">NONE</span> <span class="o">=</span> <span class="s2">&quot;None&quot;</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="msadaptivecards.base.BackgroundImage" class="doc doc-heading">
+        <code>BackgroundImage</code>
+
+
+<a href="#msadaptivecards.base.BackgroundImage" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><a class="autorefs autorefs-internal" title="msadaptivecards.base.CamelModel" href="#msadaptivecards.base.CamelModel">CamelModel</a></code></p>
+
+  
+      <p>Specifies a background image. Acceptable formats are PNG, JPEG, and GIF</p>
+
+  <p><strong>Other Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>url</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The URL (or data url) of the image. Acceptable formats are PNG, JPEG, and GIF</p></td>
+        </tr>
+        <tr>
+          <td><code>fill_mode</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="msadaptivecards.base.ImageFillMode" href="#msadaptivecards.base.ImageFillMode">ImageFillMode</a></code>
+          </td>
+          <td><p>Describes how the image should fill the area.</p></td>
+        </tr>
+        <tr>
+          <td><code>horizontal_alignment</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="msadaptivecards.base.HorizontalAlignment" href="#msadaptivecards.base.HorizontalAlignment">HorizontalAlignment</a></code>
+          </td>
+          <td><p>Describes how the image should be aligned if it must be cropped or if using repeat fill mode.</p></td>
+        </tr>
+        <tr>
+          <td><code>vertical_alignment</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="msadaptivecards.base.VerticalAlignment" href="#msadaptivecards.base.VerticalAlignment">VerticalAlignment</a></code>
+          </td>
+          <td><p>Describes how the image should be aligned if it must be cropped or if using repeat fill mode.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>msadaptivecards/base.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span>
+<span class="normal">341</span>
+<span class="normal">342</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">BackgroundImage</span><span class="p">(</span><span class="n">CamelModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Specifies a background image. Acceptable formats are PNG, JPEG, and GIF</span>
+
+<span class="sd">    Keyword Args:</span>
+<span class="sd">        url (str):</span>
+<span class="sd">            The URL (or data url) of the image. Acceptable formats are PNG, JPEG, and GIF</span>
+<span class="sd">        fill_mode (ImageFillMode):</span>
+<span class="sd">            Describes how the image should fill the area.</span>
+<span class="sd">        horizontal_alignment (HorizontalAlignment):</span>
+<span class="sd">            Describes how the image should be aligned if it must be cropped or if using repeat fill mode.</span>
+<span class="sd">        vertical_alignment (VerticalAlignment):</span>
+<span class="sd">            Describes how the image should be aligned if it must be cropped or if using repeat fill mode.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The URL (or data url) of the image. Acceptable formats are PNG, JPEG, and GIF&quot;</span><span class="p">)</span>
+    <span class="n">fill_mode</span><span class="p">:</span> <span class="n">ImageFillMode</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Describes how the image should fill the area.&quot;</span><span class="p">)</span>
+    <span class="n">horizontal_alignment</span><span class="p">:</span> <span class="n">HorizontalAlignment</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Describes how the image should be aligned if it must be cropped or if using repeat fill mode.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">vertical_alignment</span><span class="p">:</span> <span class="n">VerticalAlignment</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Describes how the image should be aligned if it must be cropped or if using repeat fill mode.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="msadaptivecards.base.BaseContainers" class="doc doc-heading">
+        <code>BaseContainers</code>
+
+
+<a href="#msadaptivecards.base.BaseContainers" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><a class="autorefs autorefs-internal" title="msadaptivecards.base.CamelModel" href="#msadaptivecards.base.CamelModel">CamelModel</a></code></p>
+
+  
+      <p>Base model for all containers.</p>
+
+  <p><strong>Other Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>fallback</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="msadaptivecards.base.ElementModel" href="#msadaptivecards.base.ElementModel">ElementModel</a></code>
+          </td>
+          <td><p>Describes what to do when an unknown element is encountered or the requires of this or any children
+can't be met.
+height (BlockElementHeight):
+Specifies the height of the element.
+separator (bool):
+When true, draw a separating line at the top of the element.
+spacing (Spacing):
+Controls the amount of spacing between this element and the preceding element.
+id (str):
+A unique identifier associated with the item.
+is_visible:
+If false, this item will be removed from the visual tree.
+requires (Dict[str, str]):
+A series of key/value pairs indicating features that the item requires with corresponding minimum version.
+When a feature is missing or of insufficient version, fallback is triggered.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>msadaptivecards/base.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">457</span>
+<span class="normal">458</span>
+<span class="normal">459</span>
+<span class="normal">460</span>
+<span class="normal">461</span>
+<span class="normal">462</span>
+<span class="normal">463</span>
+<span class="normal">464</span>
+<span class="normal">465</span>
+<span class="normal">466</span>
+<span class="normal">467</span>
+<span class="normal">468</span>
+<span class="normal">469</span>
+<span class="normal">470</span>
+<span class="normal">471</span>
+<span class="normal">472</span>
+<span class="normal">473</span>
+<span class="normal">474</span>
+<span class="normal">475</span>
+<span class="normal">476</span>
+<span class="normal">477</span>
+<span class="normal">478</span>
+<span class="normal">479</span>
+<span class="normal">480</span>
+<span class="normal">481</span>
+<span class="normal">482</span>
+<span class="normal">483</span>
+<span class="normal">484</span>
+<span class="normal">485</span>
+<span class="normal">486</span>
+<span class="normal">487</span>
+<span class="normal">488</span>
+<span class="normal">489</span>
+<span class="normal">490</span>
+<span class="normal">491</span>
+<span class="normal">492</span>
+<span class="normal">493</span>
+<span class="normal">494</span>
+<span class="normal">495</span>
+<span class="normal">496</span>
+<span class="normal">497</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">BaseContainers</span><span class="p">(</span><span class="n">CamelModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base model for all containers.</span>
+
+<span class="sd">    Keyword Args:</span>
+<span class="sd">        fallback (ElementModel):</span>
+<span class="sd">            Describes what to do when an unknown element is encountered or the requires of this or any children</span>
+<span class="sd">            can&#39;t be met.</span>
+<span class="sd">         height (BlockElementHeight):</span>
+<span class="sd">            Specifies the height of the element.</span>
+<span class="sd">         separator (bool):</span>
+<span class="sd">            When true, draw a separating line at the top of the element.</span>
+<span class="sd">         spacing (Spacing):</span>
+<span class="sd">            Controls the amount of spacing between this element and the preceding element.</span>
+<span class="sd">         id (str):</span>
+<span class="sd">            A unique identifier associated with the item.</span>
+<span class="sd">         is_visible:</span>
+<span class="sd">            If false, this item will be removed from the visual tree.</span>
+<span class="sd">         requires (Dict[str, str]):</span>
+<span class="sd">            A series of key/value pairs indicating features that the item requires with corresponding minimum version.</span>
+<span class="sd">            When a feature is missing or of insufficient version, fallback is triggered.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">fallback</span><span class="p">:</span> <span class="n">ElementModel</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Describes what to do when an unknown element is encountered or &quot;</span>
+        <span class="s2">&quot;the requires of this or any children can&#39;t be met.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">height</span><span class="p">:</span> <span class="n">BlockElementHeight</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Specifies the height of the element.&quot;</span><span class="p">)</span>
+    <span class="n">separator</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;When true, draw a separating line at the top of the element.&quot;</span><span class="p">)</span>
+    <span class="n">spacing</span><span class="p">:</span> <span class="n">Spacing</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Controls the amount of spacing between this element and the preceding element.&quot;</span>
+    <span class="p">)</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;A unique identifier associated with the item.&quot;</span><span class="p">)</span>
+    <span class="n">is_visible</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;If false, this item will be removed from the visual tree.&quot;</span><span class="p">)</span>
+    <span class="n">requires</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;A series of key/value pairs indicating features that &quot;</span>
+        <span class="s2">&quot;the item requires with corresponding minimum version. When a feature is missing or of insufficient version, &quot;</span>
+        <span class="s2">&quot;fallback is triggered.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="msadaptivecards.base.BlockElementHeight" class="doc doc-heading">
+        <code>BlockElementHeight</code>
+
+
+<a href="#msadaptivecards.base.BlockElementHeight" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="enum.Enum">Enum</span></code></p>
+
+  
+      <p>Specifies the height of the element.</p>
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>AUTO</code></td>
+          <td>
+          </td>
+          <td><p>The height of the container will be determined by the height of its contents.</p></td>
+        </tr>
+        <tr>
+          <td><code>STRETCH</code></td>
+          <td>
+          </td>
+          <td><p>The container will stretch its height to the available remaining height of the parent container.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>msadaptivecards/base.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">BlockElementHeight</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Specifies the height of the element.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        AUTO:</span>
+<span class="sd">            The height of the container will be determined by the height of its contents.</span>
+<span class="sd">        STRETCH:</span>
+<span class="sd">            The container will stretch its height to the available remaining height of the parent container.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">AUTO</span> <span class="o">=</span> <span class="s2">&quot;auto&quot;</span>
+    <span class="n">STRETCH</span> <span class="o">=</span> <span class="s2">&quot;stretch&quot;</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="msadaptivecards.base.CamelModel" class="doc doc-heading">
+        <code>CamelModel</code>
+
+
+<a href="#msadaptivecards.base.CamelModel" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="pydantic.BaseModel">BaseModel</span></code></p>
+
+  
+      <p>Standard configuration for Pydantic BaseModel to generate camel cased json which is what adaptive cards uses.</p>
+
+
+        <details class="quote">
+          <summary>Source code in <code>msadaptivecards/base.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">CamelModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Standard configuration for Pydantic BaseModel to generate camel cased json which is what adaptive cards uses.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+        <span class="n">alias_generator</span> <span class="o">=</span> <span class="n">_to_camel</span>
+        <span class="n">allow_population_by_field_name</span> <span class="o">=</span> <span class="kc">True</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="msadaptivecards.base.Colors" class="doc doc-heading">
+        <code>Colors</code>
+
+
+<a href="#msadaptivecards.base.Colors" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="enum.Enum">Enum</span></code></p>
+
+  
+      <p>Controls the color of TextBlock elements.</p>
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>DEFAULT</code></td>
+          <td>
+          </td>
+          <td><p>Default black</p></td>
+        </tr>
+        <tr>
+          <td><code>DARK</code></td>
+          <td>
+          </td>
+          <td><p>Black</p></td>
+        </tr>
+        <tr>
+          <td><code>LIGHT</code></td>
+          <td>
+          </td>
+          <td><p>Light green</p></td>
+        </tr>
+        <tr>
+          <td><code>ACCENT</code></td>
+          <td>
+          </td>
+          <td><p>Blue</p></td>
+        </tr>
+        <tr>
+          <td><code>GOOD</code></td>
+          <td>
+          </td>
+          <td><p>Green</p></td>
+        </tr>
+        <tr>
+          <td><code>WARNING</code></td>
+          <td>
+          </td>
+          <td><p>Orange</p></td>
+        </tr>
+        <tr>
+          <td><code>ATTENTION</code></td>
+          <td>
+          </td>
+          <td><p>Yellow</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>msadaptivecards/base.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Colors</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Controls the color of TextBlock elements.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        DEFAULT:</span>
+<span class="sd">            Default black</span>
+<span class="sd">        DARK:</span>
+<span class="sd">            Black</span>
+<span class="sd">        LIGHT:</span>
+<span class="sd">            Light green</span>
+<span class="sd">        ACCENT:</span>
+<span class="sd">            Blue</span>
+<span class="sd">        GOOD:</span>
+<span class="sd">            Green</span>
+<span class="sd">        WARNING:</span>
+<span class="sd">            Orange</span>
+<span class="sd">        ATTENTION:</span>
+<span class="sd">            Yellow</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">DEFAULT</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
+    <span class="n">DARK</span> <span class="o">=</span> <span class="s2">&quot;dark&quot;</span>
+    <span class="n">LIGHT</span> <span class="o">=</span> <span class="s2">&quot;light&quot;</span>
+    <span class="n">ACCENT</span> <span class="o">=</span> <span class="s2">&quot;accent&quot;</span>
+    <span class="n">GOOD</span> <span class="o">=</span> <span class="s2">&quot;good&quot;</span>
+    <span class="n">WARNING</span> <span class="o">=</span> <span class="s2">&quot;warning&quot;</span>
+    <span class="n">ATTENTION</span> <span class="o">=</span> <span class="s2">&quot;attention&quot;</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="msadaptivecards.base.ElementModel" class="doc doc-heading">
+        <code>ElementModel</code>
+
+
+<a href="#msadaptivecards.base.ElementModel" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><a class="autorefs autorefs-internal" title="msadaptivecards.base.CamelModel" href="#msadaptivecards.base.CamelModel">CamelModel</a></code></p>
+
+  
+      <p>Base model for element types</p>
+
+  <p><strong>Other Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>fallback</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="msadaptivecards.base.ElementModel" href="#msadaptivecards.base.ElementModel">ElementModel</a></code>
+          </td>
+          <td><p>Describes what to do when an unknown element is encountered or the requires of this or any children
+can't be met.</p></td>
+        </tr>
+        <tr>
+          <td><code>height</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="msadaptivecards.base.BlockElementHeight" href="#msadaptivecards.base.BlockElementHeight">BlockElementHeight</a></code>
+          </td>
+          <td><p>Specifies the height of the element.</p></td>
+        </tr>
+        <tr>
+          <td><code>separator</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td><p>When true, draw a separating line at the top of the element.</p></td>
+        </tr>
+        <tr>
+          <td><code>spacing</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="msadaptivecards.base.Spacing" href="#msadaptivecards.base.Spacing">Spacing</a></code>
+          </td>
+          <td><p>Controls the amount of spacing between this element and the preceding element.</p></td>
+        </tr>
+        <tr>
+          <td><code>id</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>A unique identifier associated with the item.</p></td>
+        </tr>
+        <tr>
+          <td><code>is_visible</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td><p>If false, this item will be removed from the visual tree.</p></td>
+        </tr>
+        <tr>
+          <td><code>requires</code></td>
+          <td>
+                <code><span title="typing.Dict">Dict</span>[str, str]</code>
+          </td>
+          <td><p>A series of key/value pairs indicating features that the item requires with corresponding minimum version.
+When a feature is missing or of insufficient version, fallback is triggered.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>msadaptivecards/base.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">345</span>
+<span class="normal">346</span>
+<span class="normal">347</span>
+<span class="normal">348</span>
+<span class="normal">349</span>
+<span class="normal">350</span>
+<span class="normal">351</span>
+<span class="normal">352</span>
+<span class="normal">353</span>
+<span class="normal">354</span>
+<span class="normal">355</span>
+<span class="normal">356</span>
+<span class="normal">357</span>
+<span class="normal">358</span>
+<span class="normal">359</span>
+<span class="normal">360</span>
+<span class="normal">361</span>
+<span class="normal">362</span>
+<span class="normal">363</span>
+<span class="normal">364</span>
+<span class="normal">365</span>
+<span class="normal">366</span>
+<span class="normal">367</span>
+<span class="normal">368</span>
+<span class="normal">369</span>
+<span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
+<span class="normal">384</span>
+<span class="normal">385</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">ElementModel</span><span class="p">(</span><span class="n">CamelModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base model for element types</span>
+
+<span class="sd">    Keyword Args:</span>
+<span class="sd">        fallback (ElementModel):</span>
+<span class="sd">            Describes what to do when an unknown element is encountered or the requires of this or any children</span>
+<span class="sd">            can&#39;t be met.</span>
+<span class="sd">        height (BlockElementHeight):</span>
+<span class="sd">            Specifies the height of the element.</span>
+<span class="sd">        separator (bool):</span>
+<span class="sd">            When true, draw a separating line at the top of the element.</span>
+<span class="sd">        spacing (Spacing):</span>
+<span class="sd">            Controls the amount of spacing between this element and the preceding element.</span>
+<span class="sd">        id (str):</span>
+<span class="sd">            A unique identifier associated with the item.</span>
+<span class="sd">        is_visible (bool):</span>
+<span class="sd">            If false, this item will be removed from the visual tree.</span>
+<span class="sd">        requires (Dict[str, str]):</span>
+<span class="sd">            A series of key/value pairs indicating features that the item requires with corresponding minimum version.</span>
+<span class="sd">            When a feature is missing or of insufficient version, fallback is triggered.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">fallback</span><span class="p">:</span> <span class="s2">&quot;ElementModel&quot;</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Describes what to do when an unknown element is encountered or the requires of this or any &quot;</span>
+        <span class="s2">&quot;children can&#39;t be met.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">height</span><span class="p">:</span> <span class="n">BlockElementHeight</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Specifies the height of the element.&quot;</span><span class="p">)</span>
+    <span class="n">separator</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;When true, draw a separating line at the top of the element.&quot;</span><span class="p">)</span>
+    <span class="n">spacing</span><span class="p">:</span> <span class="n">Spacing</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Controls the amount of spacing between this element and the preceding element.&quot;</span>
+    <span class="p">)</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;A unique identifier associated with the item.&quot;</span><span class="p">)</span>
+    <span class="n">is_visible</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;If false, this item will be removed from the visual tree.&quot;</span><span class="p">)</span>
+    <span class="n">requires</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;A series of key/value pairs indicating features that the item requires with corresponding &quot;</span>
+        <span class="s2">&quot;minimum version. When a feature is missing or of insufficient version, fallback is triggered.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="msadaptivecards.base.FontSize" class="doc doc-heading">
+        <code>FontSize</code>
+
+
+<a href="#msadaptivecards.base.FontSize" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="enum.Enum">Enum</span></code></p>
+
+  
+      <p>Controls size of text.</p>
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>DEFAULT</code></td>
+          <td>
+          </td>
+          <td><p>Default size</p></td>
+        </tr>
+        <tr>
+          <td><code>SMALL</code></td>
+          <td>
+          </td>
+          <td><p>Small font size</p></td>
+        </tr>
+        <tr>
+          <td><code>MEDIUM</code></td>
+          <td>
+          </td>
+          <td><p>Medium font size</p></td>
+        </tr>
+        <tr>
+          <td><code>LARGE</code></td>
+          <td>
+          </td>
+          <td><p>Large font size</p></td>
+        </tr>
+        <tr>
+          <td><code>EXTRA_LARGE</code></td>
+          <td>
+          </td>
+          <td><p>Larger font size</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>msadaptivecards/base.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">FontSize</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Controls size of text.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        DEFAULT:</span>
+<span class="sd">            Default size</span>
+<span class="sd">        SMALL:</span>
+<span class="sd">            Small font size</span>
+<span class="sd">        MEDIUM:</span>
+<span class="sd">            Medium font size</span>
+<span class="sd">        LARGE:</span>
+<span class="sd">            Large font size</span>
+<span class="sd">        EXTRA_LARGE:</span>
+<span class="sd">            Larger font size</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">DEFAULT</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
+    <span class="n">SMALL</span> <span class="o">=</span> <span class="s2">&quot;small&quot;</span>
+    <span class="n">MEDIUM</span> <span class="o">=</span> <span class="s2">&quot;medium&quot;</span>
+    <span class="n">LARGE</span> <span class="o">=</span> <span class="s2">&quot;large&quot;</span>
+    <span class="n">EXTRA_LARGE</span> <span class="o">=</span> <span class="s2">&quot;extraLarge&quot;</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="msadaptivecards.base.FontType" class="doc doc-heading">
+        <code>FontType</code>
+
+
+<a href="#msadaptivecards.base.FontType" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="enum.Enum">Enum</span></code></p>
+
+  
+      <p>Type of font to use for rendering.</p>
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>DEFAULT</code></td>
+          <td>
+          </td>
+          <td><p>Default font</p></td>
+        </tr>
+        <tr>
+          <td><code>MONOSPACE</code></td>
+          <td>
+          </td>
+          <td><p>Monospace font</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>msadaptivecards/base.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">FontType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Type of font to use for rendering.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        DEFAULT:</span>
+<span class="sd">            Default font</span>
+<span class="sd">        MONOSPACE:</span>
+<span class="sd">            Monospace font</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">DEFAULT</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
+    <span class="n">MONOSPACE</span> <span class="o">=</span> <span class="s2">&quot;monospace&quot;</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="msadaptivecards.base.FontWeight" class="doc doc-heading">
+        <code>FontWeight</code>
+
+
+<a href="#msadaptivecards.base.FontWeight" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="enum.Enum">Enum</span></code></p>
+
+  
+      <p>Controls the weight of TextBlock elements.</p>
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>DEFAULT</code></td>
+          <td>
+          </td>
+          <td><p>Normal weight for the font</p></td>
+        </tr>
+        <tr>
+          <td><code>LIGHTER</code></td>
+          <td>
+          </td>
+          <td><p>Font has lighter lines</p></td>
+        </tr>
+        <tr>
+          <td><code>BOLDER</code></td>
+          <td>
+          </td>
+          <td><p>Bold font size</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>msadaptivecards/base.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">FontWeight</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Controls the weight of TextBlock elements.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        DEFAULT:</span>
+<span class="sd">            Normal weight for the font</span>
+<span class="sd">        LIGHTER:</span>
+<span class="sd">            Font has lighter lines</span>
+<span class="sd">        BOLDER:</span>
+<span class="sd">            Bold font size</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">DEFAULT</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
+    <span class="n">LIGHTER</span> <span class="o">=</span> <span class="s2">&quot;lighter&quot;</span>
+    <span class="n">BOLDER</span> <span class="o">=</span> <span class="s2">&quot;bolder&quot;</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="msadaptivecards.base.HorizontalAlignment" class="doc doc-heading">
+        <code>HorizontalAlignment</code>
+
+
+<a href="#msadaptivecards.base.HorizontalAlignment" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="enum.Enum">Enum</span></code></p>
+
+  
+      <p>Describes how the image should be aligned if it must be cropped or if using repeat fill mode.</p>
+<p>See More: https://adaptivecards.io/explorer/BackgroundImage.html</p>
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>LEFT</code></td>
+          <td>
+          </td>
+          <td><p>Position to the left.</p></td>
+        </tr>
+        <tr>
+          <td><code>CENTER</code></td>
+          <td>
+          </td>
+          <td><p>Position in the center.</p></td>
+        </tr>
+        <tr>
+          <td><code>RIGHT</code></td>
+          <td>
+          </td>
+          <td><p>Position to the right.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>msadaptivecards/base.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">HorizontalAlignment</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Describes how the image should be aligned if it must be cropped or if using repeat fill mode.</span>
+
+<span class="sd">    See More: https://adaptivecards.io/explorer/BackgroundImage.html</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        LEFT:</span>
+<span class="sd">            Position to the left.</span>
+<span class="sd">        CENTER:</span>
+<span class="sd">            Position in the center.</span>
+<span class="sd">        RIGHT:</span>
+<span class="sd">            Position to the right.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">LEFT</span> <span class="o">=</span> <span class="s2">&quot;left&quot;</span>
+    <span class="n">CENTER</span> <span class="o">=</span> <span class="s2">&quot;center&quot;</span>
+    <span class="n">RIGHT</span> <span class="o">=</span> <span class="s2">&quot;right&quot;</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="msadaptivecards.base.ImageFillMode" class="doc doc-heading">
+        <code>ImageFillMode</code>
+
+
+<a href="#msadaptivecards.base.ImageFillMode" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="enum.Enum">Enum</span></code></p>
+
+  
+      <p>Describes how the image should fill the area.
+See More: https://adaptivecards.io/explorer/BackgroundImage.html</p>
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>COVER</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The background image covers the entire width of the container. Its aspect ratio is preserved.
+Content may be clipped if the aspect ratio of the image doesn't match the aspect ratio of the container.
+verticalAlignment is respected (horizontalAlignment is meaningless since it's stretched width). This is
+the default mode and is the equivalent to the current model.</p></td>
+        </tr>
+        <tr>
+          <td><code>REPEAT_HORIZONTALLY</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The background image isn't stretched. It is repeated in the x axis as many times as necessary to cover
+the container's width. verticalAlignment is honored (default is top), horizontalAlignment is ignored.</p></td>
+        </tr>
+        <tr>
+          <td><code>REPEAT_VERTICALLY</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The background image isn't stretched. It is repeated in the y axis as many times as necessary to cover the
+container's height. verticalAlignment is ignored, horizontalAlignment is honored (default is left).</p></td>
+        </tr>
+        <tr>
+          <td><code>REPEAT</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The background image isn't stretched. It is repeated first in the x axis then in the y axis as many times
+as necessary to cover the entire container. Both horizontalAlignment and verticalAlignment are
+honored (defaults are left and top).</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>msadaptivecards/base.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">ImageFillMode</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Describes how the image should fill the area.</span>
+<span class="sd">    See More: https://adaptivecards.io/explorer/BackgroundImage.html</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        COVER (str):</span>
+<span class="sd">            The background image covers the entire width of the container. Its aspect ratio is preserved.</span>
+<span class="sd">            Content may be clipped if the aspect ratio of the image doesn&#39;t match the aspect ratio of the container.</span>
+<span class="sd">            verticalAlignment is respected (horizontalAlignment is meaningless since it&#39;s stretched width). This is</span>
+<span class="sd">            the default mode and is the equivalent to the current model.</span>
+<span class="sd">        REPEAT_HORIZONTALLY (str):</span>
+<span class="sd">            The background image isn&#39;t stretched. It is repeated in the x axis as many times as necessary to cover</span>
+<span class="sd">            the container&#39;s width. verticalAlignment is honored (default is top), horizontalAlignment is ignored.</span>
+<span class="sd">        REPEAT_VERTICALLY (str):</span>
+<span class="sd">            The background image isn&#39;t stretched. It is repeated in the y axis as many times as necessary to cover the</span>
+<span class="sd">            container&#39;s height. verticalAlignment is ignored, horizontalAlignment is honored (default is left).</span>
+<span class="sd">        REPEAT (str):</span>
+<span class="sd">            The background image isn&#39;t stretched. It is repeated first in the x axis then in the y axis as many times</span>
+<span class="sd">            as necessary to cover the entire container. Both horizontalAlignment and verticalAlignment are</span>
+<span class="sd">            honored (defaults are left and top).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">COVER</span> <span class="o">=</span> <span class="s2">&quot;cover&quot;</span>
+    <span class="n">REPEAT_HORIZONTALLY</span> <span class="o">=</span> <span class="s2">&quot;repeatHorizontally&quot;</span>
+    <span class="n">REPEAT_VERTICALLY</span> <span class="o">=</span> <span class="s2">&quot;repeatVertically&quot;</span>
+    <span class="n">REPEAT</span> <span class="o">=</span> <span class="s2">&quot;repeat&quot;</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="msadaptivecards.base.SelectAction" class="doc doc-heading">
+        <code>SelectAction</code>
+
+
+<a href="#msadaptivecards.base.SelectAction" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><a class="autorefs autorefs-internal" title="msadaptivecards.base.ActionModel" href="#msadaptivecards.base.ActionModel">ActionModel</a></code></p>
+
+  
+      <p>Marker model for select actions.</p>
+
+
+        <details class="quote">
+          <summary>Source code in <code>msadaptivecards/base.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">449</span>
+<span class="normal">450</span>
+<span class="normal">451</span>
+<span class="normal">452</span>
+<span class="normal">453</span>
+<span class="normal">454</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">SelectAction</span><span class="p">(</span><span class="n">ActionModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Marker model for select actions.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="msadaptivecards.base.Spacing" class="doc doc-heading">
+        <code>Spacing</code>
+
+
+<a href="#msadaptivecards.base.Spacing" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="enum.Enum">Enum</span></code></p>
+
+  
+      <p>Controls the amount of spacing between this element and the preceding element.</p>
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>DEFAULT</code></td>
+          <td>
+          </td>
+          <td><p>Default spacing</p></td>
+        </tr>
+        <tr>
+          <td><code>NONE</code></td>
+          <td>
+          </td>
+          <td><p>No spacing between elements</p></td>
+        </tr>
+        <tr>
+          <td><code>SMALL</code></td>
+          <td>
+          </td>
+          <td><p>Small spacing between elements</p></td>
+        </tr>
+        <tr>
+          <td><code>MEDIUM</code></td>
+          <td>
+          </td>
+          <td><p>Medium spacing between elements</p></td>
+        </tr>
+        <tr>
+          <td><code>LARGE</code></td>
+          <td>
+          </td>
+          <td><p>Large spacing between elements</p></td>
+        </tr>
+        <tr>
+          <td><code>EXTRA_LARGE</code></td>
+          <td>
+          </td>
+          <td><p>Extra large spacing between elements</p></td>
+        </tr>
+        <tr>
+          <td><code>PADDING</code></td>
+          <td>
+          </td>
+          <td><p>Add padding between elements</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>msadaptivecards/base.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Spacing</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Controls the amount of spacing between this element and the preceding element.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        DEFAULT:</span>
+<span class="sd">            Default spacing</span>
+<span class="sd">        NONE:</span>
+<span class="sd">            No spacing between elements</span>
+<span class="sd">        SMALL:</span>
+<span class="sd">            Small spacing between elements</span>
+<span class="sd">        MEDIUM:</span>
+<span class="sd">            Medium spacing between elements</span>
+<span class="sd">        LARGE:</span>
+<span class="sd">            Large spacing between elements</span>
+<span class="sd">        EXTRA_LARGE:</span>
+<span class="sd">            Extra large spacing between elements</span>
+<span class="sd">        PADDING:</span>
+<span class="sd">            Add padding between elements</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">DEFAULT</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
+    <span class="n">NONE</span> <span class="o">=</span> <span class="s2">&quot;none&quot;</span>
+    <span class="n">SMALL</span> <span class="o">=</span> <span class="s2">&quot;small&quot;</span>
+    <span class="n">MEDIUM</span> <span class="o">=</span> <span class="s2">&quot;medium&quot;</span>
+    <span class="n">LARGE</span> <span class="o">=</span> <span class="s2">&quot;large&quot;</span>
+    <span class="n">EXTRA_LARGE</span> <span class="o">=</span> <span class="s2">&quot;extraLarge&quot;</span>
+    <span class="n">PADDING</span> <span class="o">=</span> <span class="s2">&quot;padding&quot;</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="msadaptivecards.base.Style" class="doc doc-heading">
+        <code>Style</code>
+
+
+<a href="#msadaptivecards.base.Style" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="enum.Enum">Enum</span></code></p>
+
+  
+      <p>Style hint for Container.</p>
+<p>See More: https://adaptivecards.io/explorer/Container.html</p>
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>DEFAULT</code></td>
+          <td>
+          </td>
+          <td><p>Default style with</p></td>
+        </tr>
+        <tr>
+          <td><code>EMPHASIS</code></td>
+          <td>
+          </td>
+          <td><p>Emphasis the background color of the container</p></td>
+        </tr>
+        <tr>
+          <td><code>GOOD</code></td>
+          <td>
+          </td>
+          <td><p>'Good' background color, a green color type</p></td>
+        </tr>
+        <tr>
+          <td><code>ATTENTION</code></td>
+          <td>
+          </td>
+          <td><p>'Attention' color, orange/red color type</p></td>
+        </tr>
+        <tr>
+          <td><code>WARNING</code></td>
+          <td>
+          </td>
+          <td><p>'Warning' color, yellow/orange color type</p></td>
+        </tr>
+        <tr>
+          <td><code>ACCENT</code></td>
+          <td>
+          </td>
+          <td><p>'Accent' color, blue color type</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>msadaptivecards/base.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Style</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Style hint for Container.</span>
+
+<span class="sd">    See More: https://adaptivecards.io/explorer/Container.html</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        DEFAULT:</span>
+<span class="sd">            Default style with</span>
+<span class="sd">        EMPHASIS:</span>
+<span class="sd">            Emphasis the background color of the container</span>
+<span class="sd">        GOOD:</span>
+<span class="sd">            &#39;Good&#39; background color, a green color type</span>
+<span class="sd">        ATTENTION:</span>
+<span class="sd">            &#39;Attention&#39; color, orange/red color type</span>
+<span class="sd">        WARNING:</span>
+<span class="sd">            &#39;Warning&#39; color, yellow/orange color type</span>
+<span class="sd">        ACCENT:</span>
+<span class="sd">            &#39;Accent&#39; color, blue color type</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">DEFAULT</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
+    <span class="n">EMPHASIS</span> <span class="o">=</span> <span class="s2">&quot;emphasis&quot;</span>
+    <span class="n">GOOD</span> <span class="o">=</span> <span class="s2">&quot;good&quot;</span>
+    <span class="n">ATTENTION</span> <span class="o">=</span> <span class="s2">&quot;attention&quot;</span>
+    <span class="n">WARNING</span> <span class="o">=</span> <span class="s2">&quot;warning&quot;</span>
+    <span class="n">ACCENT</span> <span class="o">=</span> <span class="s2">&quot;accent&quot;</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="msadaptivecards.base.TextBlockStyle" class="doc doc-heading">
+        <code>TextBlockStyle</code>
+
+
+<a href="#msadaptivecards.base.TextBlockStyle" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="enum.Enum">Enum</span></code></p>
+
+  
+      <p>The style of this TextBlock for accessibility purposes.</p>
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>DEFAULT</code></td>
+          <td>
+          </td>
+          <td><p>This is the default style which provide no special styling or behavior.</p></td>
+        </tr>
+        <tr>
+          <td><code>HEADING</code></td>
+          <td>
+          </td>
+          <td><p>The TextBlock is a heading. This will apply the heading styling defaults and mark the text block as a
+heading for accessibility.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>msadaptivecards/base.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">TextBlockStyle</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The style of this TextBlock for accessibility purposes.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        DEFAULT:</span>
+<span class="sd">            This is the default style which provide no special styling or behavior.</span>
+<span class="sd">        HEADING:</span>
+<span class="sd">            The TextBlock is a heading. This will apply the heading styling defaults and mark the text block as a</span>
+<span class="sd">            heading for accessibility.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">DEFAULT</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
+    <span class="n">HEADING</span> <span class="o">=</span> <span class="s2">&quot;heading&quot;</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="msadaptivecards.base.VerticalAlignment" class="doc doc-heading">
+        <code>VerticalAlignment</code>
+
+
+<a href="#msadaptivecards.base.VerticalAlignment" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="enum.Enum">Enum</span></code></p>
+
+  
+      <p>Describes how the image should be aligned if it must be cropped or if using repeat fill mode.</p>
+<p>See More: https://adaptivecards.io/explorer/BackgroundImage.html</p>
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>TOP</code></td>
+          <td>
+          </td>
+          <td><p>Position to the top.</p></td>
+        </tr>
+        <tr>
+          <td><code>CENTER</code></td>
+          <td>
+          </td>
+          <td><p>Position in the center.</p></td>
+        </tr>
+        <tr>
+          <td><code>BOTTOM</code></td>
+          <td>
+          </td>
+          <td><p>Position to the bottom.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>msadaptivecards/base.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">VerticalAlignment</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Describes how the image should be aligned if it must be cropped or if using repeat fill mode.</span>
+
+<span class="sd">    See More: https://adaptivecards.io/explorer/BackgroundImage.html</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        TOP:</span>
+<span class="sd">            Position to the top.</span>
+<span class="sd">        CENTER:</span>
+<span class="sd">            Position in the center.</span>
+<span class="sd">        BOTTOM:</span>
+<span class="sd">            Position to the bottom.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">TOP</span> <span class="o">=</span> <span class="s2">&quot;top&quot;</span>
+    <span class="n">CENTER</span> <span class="o">=</span> <span class="s2">&quot;center&quot;</span>
+    <span class="n">BOTTOM</span> <span class="o">=</span> <span class="s2">&quot;bottom&quot;</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      2022-08-16
+    
+  </small>
+</div>
+
+
+
+
+              
+            </article>
+            
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../actions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Actions" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Actions
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 - 2022 Idar Bergli
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "content.tabs.link", "navigation.indexes", "navigation.top"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+        <script src="../../vendor/jquery/jquery-3.6.0.min.js"></script>
+      
+        <script src="../../vendor/featherlight/featherlight.min.js"></script>
+      
+    
+  </body>
+</html>
