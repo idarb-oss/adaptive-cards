@@ -1,5 +1,6 @@
 <a name="readme-top"></a>
-
+[![CI][ci-shield]][ci-url]
+[![PyPi][pypi-shield]][pypi-url]
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -11,7 +12,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/idarb-oss/adaptive-cards">
-    <img src="docs/assets/adaptive-card.svg" alt="Logo" width="80" height="80">
+    <img src="https://raw.githubusercontent.com/idarb-oss/adaptive-cards/main/docs/assets/adaptive-card.svg" alt="Logo" width="100" height="100">
   </a>
 
 <h3 align="center">ms-adaptive-cards</h3>
@@ -103,7 +104,7 @@ This is an example of how to list things you need to use the software and how to
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+_For more examples, please refer to the [Documentation](https://adaptive-cards.idar-oss.com)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -172,6 +173,10 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[ci-shield]: https://img.shields.io/github/workflow/status/idarb-oss/adaptive-cards/CI?style=for-the-badge
+[ci-url]: https://github.com/idarb-oss/adaptive-cards/actions?query=event%3Apush+branch%3Amain+workflow%3Aci
+[pypi-shield]: https://img.shields.io/pypi/v/ms-adaptive-cards?style=for-the-badge
+[pypi-url]: https://pypi.org/project/ms-adaptive-cards/
 [contributors-shield]: https://img.shields.io/github/contributors/idarb-oss/adaptive-cards.svg?style=for-the-badge
 [contributors-url]: https://github.com/idarb-oss/adaptive-cards/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/idarb-oss/adaptive-cards.svg?style=for-the-badge

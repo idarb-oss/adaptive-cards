@@ -11,6 +11,10 @@ class OpenUrl(SelectAction):
     """
     When invoked, show the given url either by launching it in an external web browser or showing within an
     embedded web browser.
+
+    Keyword Args:
+        type (str): Must be `Action.OpenUrl`.
+        url (str): The URL to open.
     """
 
     type: Literal["Action.OpenUrl"] = Field("Action.OpenUrl", description="Must be 'Action.OpenUrl'.")
@@ -25,6 +29,12 @@ class Submit(SelectAction):
     case of a show card those on any parent cards.
 
     See https://docs.microsoft.com/en-us/adaptive-cards/authoring-cards/input-validation for more details.
+
+    Keyword Args:
+        type (str): Must be `Action.Submit`.
+        data (Union[str, dict]: Initial data that input fields will be combined with. These are essentially 'hidden'
+            properties.
+        associated_inputs (AssociatedInputs): Controls which inputs are associated with the submit action.
     """
 
     type: Literal["Action.Submit"] = Field("Action.Submit", description="Must be 'Action.Submit'.")
@@ -34,5 +44,5 @@ class Submit(SelectAction):
         "These are essentially 'hidden' properties.",
     )
     associated_inputs: AssociatedInputs = Field(
-        None, description="Controls which inputs are associated with the " "submit action."
+        None, description="Controls which inputs are associated with the submit action."
     )

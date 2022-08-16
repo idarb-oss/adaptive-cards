@@ -40,6 +40,7 @@ plugins:
   - search:
       prebuild_index: true
   - git-revision-date:
+  - mkdocstrings:
 
 extra:
   generator: false
@@ -84,3 +85,16 @@ extra_css:
 
 nav:
   - Overview: index.md
+  - Install: install.md
+  - User-Guide:
+      - Cards: user-guide/cards.md
+      - Containers: user-guide/containers.md
+      - Elements: user-guide/elements.md
+      - Actions: user-guide/actions.md
+      - Base: user-guide/base.md
+  - "Code Reference":
+      - Cards: code-reference/cards.md
+      - Containers: code-reference/containers.md
+      - Elements: code-reference/elements.md
+      - Actions: code-reference/actions.md
+      - Base: code-reference/base.md

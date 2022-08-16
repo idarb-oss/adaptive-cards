@@ -44,4 +44,4 @@ jobs:
 
       - name: Create version and Publish to gh-pages
         run: |
-          poetry run mike deploy --push $(poetry version -s)
+          poetry run mkdocs gh-deploy -c
