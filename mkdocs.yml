@@ -92,3 +92,9 @@ nav:
       - Elements: user-guide/elements.md
       - Actions: user-guide/actions.md
       - Base: user-guide/base.md
+  - "Code Reference":
+      - Cards: code-reference/cards.md
+      - Containers: code-reference/containers.md
+      - Elements: code-reference/elements.md
+      - Actions: code-reference/actions.md
+      - Base: code-reference/base.md

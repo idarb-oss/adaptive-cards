@@ -1,3 +1,0 @@
-## Code Reference
-
-::: msadaptivecards.elements
